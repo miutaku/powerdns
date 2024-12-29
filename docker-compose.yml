@@ -1,0 +1,26 @@
+---
+services:
+  pdns-auth:
+    image: powerdns/pdns-auth-49:4.9.3
+    ports:
+      - "8053:53"
+      - "8053:53/udp"
+    volumes:
+#      - type: bind
+#        source: ./data/powerdns-auth/pdns.sqlite
+#        target: /var/lib/powerdns/pdns.sqlite
+      - ./pdns/auth/pdns.conf:/etc/powerdns/pdns.d/pdns.conf
+
+  pdns-admin:
+    image: ngoduykhanh/powerdns-admin:latest
+    ports:
+      - "8080:80"
+#    volumes:
+#      - type: bind
+#        source: ./data/powerdns-admin/admin.sqlite
+#        target: /data/admin.sqlite
+    environment:
+#      - "SQLALCHEMY_DATABASE_URI=sqlite:////data/admin.sqlite"
+      - GUNICORN_TIMEOUT=60
+      - GUNICORN_workers=2
+      - GUNICORN_LOGLEVEL=INFO
