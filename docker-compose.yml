@@ -2,6 +2,7 @@
 services:
   pdns-auth:
     image: powerdns/pdns-auth-49:4.9.3
+    container_name: pdns-auth
     ports:
       - "8053:53"
       - "8053:53/udp"
@@ -13,6 +14,7 @@ services:
 
   pdns-admin:
     image: ngoduykhanh/powerdns-admin:latest
+    container_name: pdns-admin
     ports:
       - "8080:80"
 #    volumes:
