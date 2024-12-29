@@ -6,6 +6,7 @@ services:
     ports:
       - "8053:53"
       - "8053:53/udp"
+      - "8081:8081"
     volumes:
 #      - type: bind
 #        source: ./data/powerdns-auth/pdns.sqlite
