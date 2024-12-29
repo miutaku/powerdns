@@ -11,7 +11,7 @@ services:
 #      - type: bind
 #        source: ./data/powerdns-auth/pdns.sqlite
 #        target: /var/lib/powerdns/pdns.sqlite
-      - ./pdns/auth/pdns.conf:/etc/powerdns/pdns.d/pdns.conf
+      - ./pdns/auth/pdns.conf:/etc/powerdns/pdns.conf
 
   pdns-admin:
     image: ngoduykhanh/powerdns-admin:latest
