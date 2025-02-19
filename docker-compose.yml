@@ -14,16 +14,18 @@ services:
       - ./pdns/auth/pdns.conf:/etc/powerdns/pdns.conf
 
   pdns-admin:
-    image: ngoduykhanh/powerdns-admin:latest
-    container_name: pdns-admin
+    image: powerdnsadmin/pda-legacy:latest
+    container_name: powerdns_admin
     ports:
-      - "8888:80"
-#    volumes:
-#      - type: bind
-#        source: ./data/powerdns-admin/admin.sqlite
-#        target: /data/admin.sqlite
+      - "9191:80"
+    logging:
+      driver: json-file
+      options:
+        max-size: 50m
     environment:
-#      - "SQLALCHEMY_DATABASE_URI=sqlite:////data/admin.sqlite"
-      - GUNICORN_TIMEOUT=60
-      - GUNICORN_workers=2
-      - GUNICORN_LOGLEVEL=INFO
+      - SECRET_KEY='__PDNS_API_KEY__' 
+      - SQLA_DB_USER='__PDNS_ADMIN_DB_USER__' 
+      - SQLA_DB_PASSWORD='__PDNS_ADMIN_DB_PASSWORD__' 
+      - SQLA_DB_HOST='__PDNS_ADMIN_DB_HOST__' 
+      - SQLA_DB_NAME='__PDNS_ADMIN_DB_NAME__' 
+      - SQLA_DB_PORT='__PDNS_ADMIN_DB_PORT__'
