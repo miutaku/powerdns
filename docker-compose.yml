@@ -22,10 +22,5 @@ services:
       driver: json-file
       options:
         max-size: 50m
-    environment:
-      - SECRET_KEY='__PDNS_API_KEY__' 
-      - SQLA_DB_USER='__PDNS_ADMIN_DB_USER__' 
-      - SQLA_DB_PASSWORD='__PDNS_ADMIN_DB_PASSWORD__' 
-      - SQLA_DB_HOST='__PDNS_ADMIN_DB_HOST__' 
-      - SQLA_DB_NAME='__PDNS_ADMIN_DB_NAME__' 
-      - SQLA_DB_PORT='__PDNS_ADMIN_DB_PORT__'
+    volumes:
+      - ./admin/docker_config.py:/app/configs/docker_config.py
