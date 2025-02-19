@@ -38,23 +38,26 @@ services:
       - SYS_TIME
 
   pdns-admin:
-    image: powerdnsadmin/pda-legacy:latest
-    container_name: powerdns-admin
+    image: lamgc/poweradmin:latest
+    container_name: pdns-admin
     ports:
       - "9191:80"
     logging:
       driver: json-file
       options:
         max-size: 50m
+    #restart: unless-stopped
     env_file:
       - .env_pdns
     volumes:
-      - ./pdns/powerdns_admin/data:/data
+      #- "./pdns_admin_config/config.inc.php:/var/www/html/inc/config.inc.php"
     networks:
       powerdns:
         ipv4_address: 172.23.0.4
     cap_add:
       - SYS_TIME
+    depends_on:
+      - pdns-auth
 
 networks:
   powerdns:
