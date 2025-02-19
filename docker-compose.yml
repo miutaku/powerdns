@@ -21,7 +21,7 @@ services:
   pdns-auth:
     image: powerdns/pdns-auth-49:4.9.3
     container_name: pdns-auth
-    restart: always
+    #restart: always
     env_file:
       - .env_pdns
     ports:
