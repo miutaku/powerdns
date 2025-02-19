@@ -49,8 +49,8 @@ services:
     #restart: unless-stopped
     env_file:
       - .env_pdns
-    #volumes:
-      #- "./pdns_admin_config/config.inc.php:/var/www/html/inc/config.inc.php"
+    volumes:
+      - "./pdns/admin/config.inc.php:/var/www/html/inc/config.inc.php"
     networks:
       powerdns:
         ipv4_address: 172.23.0.4
