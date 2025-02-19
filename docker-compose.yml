@@ -37,7 +37,7 @@ services:
     cap_add:
       - SYS_TIME
     depends_on:
-      - haproxy-db-proxy
+      - pdns-haproxy-db-proxy
 
   pdns-admin:
     image: lamgc/poweradmin:latest
@@ -60,7 +60,7 @@ services:
       - SYS_TIME
     depends_on:
       - pdns-auth
-      - haproxy-db-proxy
+      - pdns-haproxy-db-proxy
 
   pdns-haproxy-db-proxy:
     image: haproxy:latest
