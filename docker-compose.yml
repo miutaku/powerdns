@@ -1,22 +1,22 @@
 ---
 services:
-  pdns-recursor:
-    image: powerdns/pdns-recursor-master
-    container_name: pdns-recursor
-    restart: always
-    env_file:
-      - .env_pdns
-    ports:
-      - "53:53"
-      - "53:53/udp"
-      - "8082:8082"
-    volumes:
-      - ./pdns/recursor/recursor.conf.yml:/etc/powerdns/recursor.conf:ro
-    networks:
-      powerdns:
-        ipv4_address: 172.23.0.2
-    cap_add:
-      - SYS_TIME
+  #pdns-recursor:
+  #  image: powerdns/pdns-recursor-master
+  #  container_name: pdns-recursor
+  #  restart: always
+  #  env_file:
+  #    - .env_pdns
+  #  ports:
+  #    - "53:53"
+  #    - "53:53/udp"
+  #    - "8082:8082"
+  #  volumes:
+  #    - ./pdns/recursor/recursor.conf.yml:/etc/powerdns/recursor.conf:ro
+  #  networks:
+  #    powerdns:
+  #      ipv4_address: 172.23.0.2
+  #  cap_add:
+  #    - SYS_TIME
 
   pdns-auth:
     image: powerdns/pdns-auth-49:4.9.3
@@ -25,6 +25,8 @@ services:
     env_file:
       - .env_pdns
     ports:
+      #- "53:53"
+      #- "53:53/udp"    
       - "8081:8081"
     volumes:
       - ./pdns/auth/data:/var/lib/powerdns/
