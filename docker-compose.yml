@@ -72,8 +72,7 @@ services:
     restart: always
     networks:
       powerdns:
-        ipv4_address:
-          ipv4_address: 172.23.0.5
+        ipv4_address: 172.23.0.5
 
 networks:
   powerdns:
