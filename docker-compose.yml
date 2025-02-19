@@ -62,7 +62,7 @@ services:
       - pdns-auth
       - haproxy-db-proxy
 
-  haproxy:
+  pdns-haproxy-db-proxy:
     image: haproxy:latest
     container_name: haproxy-db-proxy
     volumes:
