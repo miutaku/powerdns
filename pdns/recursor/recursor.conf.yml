@@ -1,0 +1,57 @@
+recursor:
+  forward_zones:
+    - zone: local
+      forwarders:
+        - 172.23.0.3:53
+      recurse: true
+      # notify_allowed: true
+    
+    - zone: home
+      forwarders:
+        - 172.23.0.3:53
+      recurse: true
+      # notify_allowed: true
+    
+    - zone: home.home
+      forwarders:
+        - 172.23.0.3:53
+      recurse: true
+      # notify_allowed: true
+
+    - zone: 0.23.172.in-addr.arpa
+      forwarders:
+        - 172.23.0.3:53
+
+  forward_zones_recurse:
+    - zone: .
+      forwarders:
+        - 8.8.8.8
+        - 8.8.4.4
+        - 1.1.1.1
+        - 1.0.0.1
+      # recurse: true
+      # notify_allowed: true
+
+  include_dir: /etc/powerdns/recursor.d
+
+incoming:
+  listen:
+    - 0.0.0.0
+    - '::'
+
+  port: 53
+
+  allow_from:
+    - 192.168.0.0/24
+    - 10.0.0.0/16
+    - 172.23.0.0/16
+
+dnssec:
+  validation: off
+
+# logging:
+#   loglevel: 7
+
+#   common_errors: true
+#   quiet: false
+#   trace: yes
