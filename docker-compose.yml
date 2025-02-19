@@ -49,7 +49,7 @@ services:
     #restart: unless-stopped
     env_file:
       - .env_pdns
-    volumes:
+    #volumes:
       #- "./pdns_admin_config/config.inc.php:/var/www/html/inc/config.inc.php"
     networks:
       powerdns:
