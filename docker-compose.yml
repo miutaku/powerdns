@@ -68,7 +68,7 @@ services:
     volumes:
       - ./haproxy/haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg:ro
     ports:
-      - "5432:5432" # ローカルマシンの5433ポートをコンテナの5433ポートにマッピング
+      - "5433:5433" # ローカルマシンの5433ポートをコンテナの5433ポートにマッピング
     restart: always
     networks:
       powerdns:
