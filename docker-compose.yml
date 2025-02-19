@@ -64,7 +64,7 @@ services:
 
   pdns-haproxy-db-proxy:
     image: haproxy:latest
-    container_name: haproxy-db-proxy
+    container_name: pdns-haproxy-db-proxy
     volumes:
       - ./haproxy/haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg:ro
     ports:
